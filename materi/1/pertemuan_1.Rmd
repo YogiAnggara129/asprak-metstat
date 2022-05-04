@@ -1,0 +1,345 @@
+---
+title: "Pertemuan 1"
+author: "Yogi Anggara"
+date: "22/3/2021"
+output:
+  html_document: 
+    toc: true
+    toc_depth: 2
+    toc_float: 
+        collapsed: false
+    highlight: zenburn
+    df_print: paged
+    number_section: true
+    theme: lumen
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Memulai R
+
+Untuk memulai menggunakan R, langkah pertama aktifkan R terlebih dahulu sehingga akan\
+muncul tampilan sebagai berikut (pada praktikum ini mengunakan RStudio)
+
+![](img/1_rstudio.jpg)
+
+## Mengenal R Markdown {.tabset}
+
+[R Markdown](https://rmarkdown.rstudio.com/articles_intro.html) adalah format file untuk membuat dokumen dinamis dengan R. Dokumen R Markdown ditulis dalam penurunan harga (format teks biasa yang mudah ditulis) dan berisi potongan kode R yang disematkan.
+
+### Persiapan
+
+Langkah pertama adalah menginstall library `knitr` dan `rmarkdown`
+
+```{r, eval=FALSE}
+install.packages("knitr")
+install.packages("rmarkdown")
+```
+
+Selanjutnya, klik `File > New FIle > R Markdown…` Atau bisa juga dengan mengklik ikon New File.
+
+![](img/2_create_rmarkdown.jpg)
+
+Silahkan Isikan judul, autor, dan output defaultnya.
+
+R Markdown sudah siap!
+
+Untuk menyimpan filenya, silahkan klik `File > Save` atau dengan menekan `ctrrl + s`. Silahkan namai file dengan format `[Nama File].Rmd`
+
+### Penggunaan
+
+Kelebihan dari R Markdown adalah dapat memadukan teks dan kode dalam satu file. Dengan demikina, R Markdown ini sangan berguna untuk membuat dokumen yang berisikan source code seperti **laporan praktikum**.
+
+Untuk menambahkan potongan kode R, kita dapat mengklik ikon C berwarna hijau, lalu pilih R.
+
+Untuk menuliskan kode, kalian bisa ketikan di daerah yang berwarna abu-abu. Untuk menjalankan potongan kode tersebut, kalian bisa klik ikon play berwarna hijau di sebelah kanan potongan kode. Untuk memasukan teks, kita cukup mengetiknya di daerah yang berwarna putih
+
+Jika kalian ingin menjalankan semua potongan kode dengan sekali klik, kalian bisa klik ikon run di bagian kanan atas, dan pilih `Run All`
+
+Untuk mengeksport R Markdown ke HTML, PDF, atau Word, kalian bisa klik ikon `Knit` di sebelah kiri atas.
+
+Berikut adalah contoh jika dieksporrt ke HTML
+
+Masih banyak lagi fitur di R Markdown yang bisa kita eksplor lebih jauh. Untuk lebih dalam mengenai R Markdown, kalian bisa kunjungi:
+
+-   <https://bookdown.org/yihui/rmarkdown/>
+-   <https://ourcodingclub.github.io/tutorials/rmarkdown/>
+
+## Membuat Working Directory
+
+Dalam komputasi, [Working Directory](https://en.wikipedia.org/wiki/Working_directory) dari suatu proses adalah direktori dari sistem file hierarki yang terkait secara dinamis dengan setiap proses. Sederhananya, ketika kita "mengimport" atau "mengeksport file ke kode kita, yang menjadi patokana awal adalah alamat dari direktori kerja. Untuk lebih jelasnya, mari langsung ke praktik. Silahkan buka `contoh.Rmd`
+
+Sebelumnya WD berada pada `"E:/Kuliah/Semester 4/asprak metstat/materi/1"`
+
+(Note: Lokasi file secara default akan menjadi alamat WD)
+
+```{r}
+getwd()
+```
+
+Misalkan kita ingin mengambil data `diabetes.csv` di`E:\Kuliah\Semester 4\asprak metstat\materi\1\data\data2\data3\data4`
+
+```{r}
+df = read.csv("data/data2/data3/data4/diabetes.csv")
+head(df)
+```
+
+Lihat bahwa alamat direktori yang kita tuliskan sangat panjang. Kita dapat menyingkatnya dengan cara menjadikan `E:\Kuliah\Semester 4\asprak metstat\materi\1\data\data2\data3\data4` sebagai WD.
+
+```{r, warning=FALSE}
+setwd("data/data2/data3/data4/")
+getwd()
+
+df = read.csv("diabetes.csv")
+head(df)
+```
+
+Alamat direktori yang kita masukan di `read.csv` menjadi lebih singkat, yeayy!!
+
+Note: Jika kita hanya mengimport/eksport 1 file saja, sebaiknya tidak perlu merubah WD, di atas hanya contoh saja. WD akan sangat membantu jika kita menangani banyak file di satu direktori yang sama.
+
+## Cara Tahu Kegunaan Fungsi
+
+Untuk mengetahui kegunaan dari suatu fungsi, bisa menggunakan `help(fungsi)` atau `?fungsi`
+
+```{r, eval=FALSE}
+# cara 1
+help("read.csv")
+
+# cara 2
+?data.frame
+```
+
+Bisa juga langsung diakses dari R Studio (di kolom bawah kanan)
+
+# Operasi Perhitungan
+
+```{r}
+# penjumlahan
+1 + 2
+
+# pengurangan
+1 - 2
+
+# perkalian 
+1 * 2
+
+# pembagian
+1 / 2
+
+# logaritma natural
+log(12) 
+
+# logaritma basis 10
+log(12)
+
+# akar
+sqrt(12)
+
+# pangkat
+1^2
+
+# mengulang 1 sebanyak 2x
+rep(1,2)
+
+# membuat baris bilangan dari 0 sampai 12
+seq(0,12)
+
+# membuat bari bilanagn dari 0 sampai 12 dengan kenaikan 3
+seq(0, 12, by=3)
+```
+
+Dan masih banyak lagi....
+
+# Penamaan Variabel
+
+Dalam R pemberian nama variabel bersifat sensitive. artinya huruf kecil dan huruf besar dibedakan. Contoh nama variabel ipk, IPK dan Ipk adalah berbeda. Setiap variabel dapat ditugaskan dengan suatu nilai atau variabel lainnya dengan menggunakan simbol. \<- atau =.
+
+```{r}
+ipk = 4.5
+ipk
+
+# kita ubah nilai ipk menjadi 2.5
+# terlihat bahwa pada output, nilai ipk berubah menjadi 2.5
+ipk = 2.5
+ipk
+
+# selanjutnya kita coba buat variabel Ipk = 3.5
+# jika case insensitive, semestinya ipk menjadi 3.5
+# namun pada output terlihat bahwa ipk tetap 2.5
+# jadi jelas bahwa ipk dan Ipk dianggap berbeda, yang mana 
+# menandakan bahwa penamaan variabel pada R case sensitive
+Ipk = 3.5
+ipk
+```
+
+# Vektor
+
+[Vektor](https://datascienceplus.com/vectors-and-functions-in-r) adalah tipe struktur data yang paling sederhana di R. Sederhananya, vektor adalah urutan elemen data dengan tipe dasar yang sama. Anggota vektor disebut Komponen.
+
+## Membuat Vektor
+
+```{r}
+# cara membuat vektor
+x = c(1,4,1,14,563,2,2,4,6,22)
+x
+
+# kalau mau buat vektor dengan beda 1
+u = c(1:12)
+u
+
+# value yang isinya karakter
+Y = c("Ani", "Siti", "Ahmad", "Soni")
+Y
+
+# value yang isinya logika
+lmh = c(TRUE, FALSE, FALSE, TRUE)
+lmh
+```
+
+## Mendapatkan Panjang Vektor
+
+```{r}
+length(Y)
+```
+
+## Memperoleh Frekuensi
+
+```{r}
+z = c(1,1,2,1,1,3,4,3,5,7,5,7,5,9)
+table(z)
+```
+
+## Ekstraksi Vektor
+
+```{r}
+# menampilkan elemen ke-2 dari vector Y
+# NOTE: Indeks pada R dimulai dari 1
+Y[2] 
+
+# menampilkan elemen pada vector X yang lebih besar dari 6
+x[x>6] 
+
+#menampilkan semua elemen vector X kecuali elemen 1 dan 8
+x[-c(1,8)] 
+```
+
+# Data Matriks
+
+[Matriks](https://campus.datacamp.com/courses/free-introduction-to-r/chapter-3-matrices-3?ex=1#:~:text=In%20R%2C%20a%20matrix%20is,matrix%20is%20called%20two%2Ddimensional.&text=The%20third%20argument%20nrow%20indicates%20that%20the%20matrix%20should%20have%20three%20rows.) adalah kumpulan elemen dengan tipe data yang sama (numerik, karakter, atau logika) yang disusun menjadi sejumlah baris dan kolom yang tetap.
+
+Untuk mengetahui argumen apa saja pada matriks, silahkan jalankan kode:
+
+```{r, eval=FALSE}
+help("matrix")
+
+```
+
+## Membuat Matriks
+
+```{r}
+C = matrix(data=c("Yani", 27, "Perempuan", 50,
+                  "Didi", 25, "Laki-laki", 66,
+                  "Sari", 30, "Perempuan", 58,
+                  "Maman", 22, "Laki-laki", 65),
+           dimnames=list(c(), c("Nama", "Umur", "Jenis Kelamin", "Nilai")),
+           nrow=4, ncol=4, byrow=TRUE)
+C
+```
+
+## Mendapatkan Dimensi Matriks
+
+```{r}
+A = matrix(c(1:9), nrow=3, ncol=3)
+A
+
+# Dimensi dari A
+dim(A)
+```
+
+## Ekstraksi Matriks
+
+```{r}
+# mendapatkan value pada baris = 1, kolom = 2
+C[1,2]
+
+# mendapatkan semua value pada baris = 1
+C[1,]
+
+# mengisikan index matriks dengan vektor
+# mendapatkan value pada kolom 1 dan 3
+namaXjk = C[,c(1,3)]
+namaXjk
+```
+
+```{r}
+# c
+C.pr = subset(C, C[,3] == "Perempuan")
+C.pr
+```
+
+## Operasi pada Matriks
+
+```{r}
+A = matrix(c(6,91,2,3,5,3,1,2,6), nrow=3, ncol=3)
+A
+
+A * A
+
+A %*% A
+
+solve(A)
+
+t(A)
+```
+
+# Studi Kasus
+
+## Masalah 1
+
+Mobil pak budi melaju dengan kecepatan awal 30 m/s. Diketahui bahwa setiap detik kecepatan mobil pak budi bertambah sebesar 3 m/s. Berapa kecepatan mobil pak budi di detik ke-10?
+
+```{r}
+# diketahui
+v0 = 30
+a = 3
+
+# riwayat kecepatan pak budi setiap detiknya
+hist = seq(from = v0 + a, length.out=30, by=3)
+hist
+
+# jadi, kecepatan mobil pak budi di detik ke-10 adalah
+hist[10]
+```
+
+## Masalah 2
+
+Sumber soal: <https://rumuspintar.com/persamaan-linear/contoh-soal-spltv/>
+
+```{r}
+# AX = B  =>  X = inv(A) B
+
+A = matrix(c(3, 1, 2,
+             2, 2, 3,
+             1, 2, 2),
+           nrow = 3, ncol = 3,
+           byrow = TRUE)
+A
+
+B = matrix(c(17200,
+             19700,
+             14000),
+           nrow = 3, ncol = 1,
+           byrow = TRUE)
+B
+
+A.inv = solve(A)
+
+X = A.inv %*% B 
+
+print("Jadi, harga 1 buah buku, 1 buah spidol, dan 1 buah tinta berturut-turut adalah")
+
+print(X)
+```

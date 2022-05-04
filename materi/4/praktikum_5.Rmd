@@ -1,0 +1,123 @@
+---
+title: "Praktikum 5"
+author: "Yogi Anggara"
+date: "13/4/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# DISTRIBUSI PELUANG DISKRIT
+
+## Distribusi Binomial
+
+Di penghujung liga, METSTAT FC mengalami penurunan performa. Diduga hal ini disebabkan srategi yang diterapkan pada klub tersebut sudah kurang ampuh dalam menghadapi beberapa lawan. Diketahui bahwa untuk lolos dari degradasi, METSTAT FC harus menang minimal 2 kali di sisa 4 pertandingannya, di mana pada 10 pertandingan sebelumnya METSTAT FC memiliki persentase menang sebesar 30%. Pelatih METSTAT FC pun memikirkan apakah sebaiknya klubnya merubah formasi atau tidak di sisa 4 pertandingannya ini, mengingat perlunya effort lebih bagi tim untuk merubah formasi. Untuk memutuskannya, pelatih pun mencoba menghitung seberapa besar METSTAT FC minimal meraih 2 kemenangan pertandingan dari 4 pertandingan tersisa dengan informasi yang diketahui sebelumnya.
+
+Kemungkinan hasil pertandingan METSTAT FC jika meraih 2 kali kemenangan:
+
+```{r echo=FALSE, out.width='50%'}
+knitr::include_graphics('img/ex_binom.jpg')
+```
+
+Sehingga diperoleh peluang METSTAT FC meraih 2 kali kemenangan dari semua kemungkinan adalah 0,367538. Dengan melakukan hal yang sama untuk kemungkinan 3 dan 4 kali kemungkinan, diperoleh peluang METSTAT FC meraih kemenangan minimal 2x dari 4 pertandingan adalah:
+
+> peluang meraih 2 kali kemenangan + peluang meraih 3 kali kemenangan + peluang meraih 4 kali kemenangan = 0,367538 + 0,200048 + 0,04101 = 0,60902
+
+Karena menurut pelatih 0,60902 adalah peluang yang cukup besar, maka pelatih memutuskan untuk tetap menggunakan formasi yang sama.
+
+Contoh di atas adalah aplikasi dari distribusi binomial. Untuk rumusnya sendiri adalah:
+
+```{r echo=FALSE, out.width='80%'}
+knitr::include_graphics('img/formula_binom.jpg')
+```
+
+Dari mana rumus tersebut berasal? Perhatikan kembali tabel kemungkinan hasil pertandingan METSTAT FC jika meraih 2 kali kemenangan. Misalkan peluang kemenangan adalah p dan peluang tidak menang adalah q. Perhatikan bahwa peluang di setiap kondisi memiliki nilai yang sama. Hal ini dikarenakan banyak menang dan tidak menang di setiap kondisi memiliki nilai yang sama, yaitu sebesar:
+
+```{r echo=FALSE, out.width='5%', fig.align='center'}
+knitr::include_graphics('img/pq.jpg')
+```
+
+dimana x = banyak kejadian menang dan n = banyak seluruh kejadian
+
+Yang jadi pertanyaan selanjutnya adalah, berapa banyak kondisi tersebut terajadi? Jika kita analogikan menang sebagai bola dan pertandingan sebagai ember, maka sama saja seperti kita mencari kombinasi 2 ember yang berisikan bola dari ke-4 ember yang ada. Jika kita perumum kondisi ini, kita akan memperoleh rumus dari peluang binomial.
+
+### Contoh 5.1
+
+```{r}
+# a
+dbinom(3,15,0.4)
+
+# b
+pbinom(3,15,0.4)
+
+# c
+1 - pbinom(10,15,0.4)
+
+# sebaran peluang
+x = c(0:15)
+P = dbinom(x, 15, 0.4)
+plot(x, P, xlab="X", ylab="Peluang", main="Distribusi Peluang, n=15 dan p=0.40", type = "h")
+points(x, P, pch=16)
+
+# Sebaran peluang kumulatif
+Q = pbinom(x, 15, 0.4)
+plot(x, Q, xlab="X", ylab="Peluang", main="Distribusi Peluang Kumulatif, n=15 dan p=0.40", type = "h")
+points(x, Q, pch=16)
+```
+
+```{r}
+q1 = pbinom(4, 15, 0.4)
+q1
+```
+
+```{r}
+q2 = pbinom(10, 15, 0.4)
+q2
+```
+
+```{r}
+q3 = pbinom(10, 15, 0.4, lower.tail = FALSE)
+q3 + q2
+```
+
+```{r}
+P = dbinom(0:10, 10, 0.1)
+plot(0:10, P, xlab="X", type = "h")
+points(0:10, P, pch=16)
+```
+
+```{r}
+qbinom(0.25, 10, 0.1, lower.tail = FALSE)
+qbinom(0.25, 10, 0.1)
+```
+
+```{r}
+x = table(rbinom(500, 10, 0.1))
+x
+```
+```{r}
+setwd("E:/Kuliah")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

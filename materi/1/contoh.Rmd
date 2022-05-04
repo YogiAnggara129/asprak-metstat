@@ -1,0 +1,27 @@
+---
+title: "Contoh"
+author: "Yogi Anggara"
+date: "23/3/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Sebelum WD diubah
+```{r}
+getwd()
+
+df = read.csv("data/data2/data3/data4/diabetes.csv")
+head(df)
+```
+
+# Sesudah WD diubah
+```{r, warning=FALSE}
+setwd("data/data2/data3/data4/")
+getwd()
+
+df = read.csv("diabetes.csv")
+head(df)
+```

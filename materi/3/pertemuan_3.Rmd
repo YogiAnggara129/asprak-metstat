@@ -1,0 +1,73 @@
+---
+title: "Pertemuan 3: Penyajian Data Kuantitatif"
+author: "Yogi Anggara"
+date: "6/4/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+x = c(11, 21, 15, 20,10,50,60, 10, 60, 85)
+sort(x)
+stem(x)
+```
+
+# Diagram Batang dan Daun
+
+```{r}
+# import data penjualan
+Penjualan = scan("data/Penjualan.txt")
+
+# menggunakan diagram batang dana daun
+stem(Penjualan)
+
+# kita coba urutkan datanya 
+sort(Penjualan)
+```
+
+# Box Plot
+
+```{r}
+boxplot(Penjualan)
+```
+
+```{r}
+Penjualan[1]=300 #mengubah pengamatan ke-1 dengan angka 300
+Penjualan[2]=200 #mengubah pengamatan ke-2 dengan angka 200
+boxplot(Penjualan)
+```
+
+# Histogram
+
+```{r}
+hist(penjualan)
+```
+
+```{r}
+c(1:5) + c(1:5)
+```
+
+# Plot
+
+```{r}
+x = c(1:length(Penjualan))
+plot(x, Penjualan, type ="b", main = "Data perdagangan periode 1-50")
+```
+
+```{r}
+x = rnorm(50)
+y = 2 * x + rnorm(1)
+df = data.frame(x, y )
+df
+```
+
+```{r}
+plot(df)
+```
+
+```{r}
+
+```

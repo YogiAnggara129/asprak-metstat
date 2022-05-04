@@ -1,0 +1,27 @@
+---
+title: "Untitled"
+author: "TC"
+date: "10/30/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.path="testit/")
+```
+
+## R Markdown
+
+https://stackoverflow.com/questions/58600399/how-do-you-run-an-r-file-on-ubuntu?noredirect=1#comment103544013_58600399
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+```{r pressure2, echo=FALSE}
+plot(pressure)
+```
+
+
+```{r echo=FALSE}
+plot(pressure)
+```

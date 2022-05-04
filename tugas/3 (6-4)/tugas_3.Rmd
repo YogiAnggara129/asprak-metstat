@@ -1,0 +1,79 @@
+---
+title: "Tugas 3"
+author: '[NIM_NAMA]'
+date: "04/06/2021"
+output:
+  html_document:
+    toc: yes
+    toc_depth: 1
+    toc_float:
+      collapsed: no
+    includes:
+      before_body: ui/header.html
+    highlight: zenburn
+    df_print: paged
+    theme: lumen
+---
+
+Budi adalah mahasiswa jurusan XX di kampus YY. Di masa kuliahnya, ia ingin kerja part time untuk menambah uang jajannya. Di sisi lain, ia ingin sekali lulus cepat dan cumlaude dan khawatir jika part time akan mempengaruhi IP-nya. Teman-temannya mengklaim bahwa part time akan membuat Budi sibuk dan jelas akan mempengaruhi IP-nya. Mendengar ucapan temannya, Budi pun ingin membuktikan sendiri kebenaran tersebut. Budi kemudian mengambil sampel secara acak sebagaimana yang tertera di bawah ini.
+
+|                     |      |      |      |      |      |      |      |      |      |
+|---------------------|------|------|------|------|------|------|------|------|------|
+| **Part time**       | 2.33 | 2.95 | 3.04 | 3.85 | 3.10 | 2.84 |      |      |      |
+| **Tidak part time** | 3.24 | 3.24 | 2.32 | 3.18 | 3.31 | 3.38 | 2.64 | 3.09 | 3.11 |
+
+Dengan menggunakan **taraf signifikansi sebesar 5%**, tentukan apakah rata-rata IP mahasiswa yang part time lebih kecil dari mahasiswa yang tidak part time!
+
+------------------------------------------------------------------------
+
+Untuk menentukan klaim teman-temannya benar atau tidak, Budi memutuskan menggunakna uji t. Akan tetapi Budi tidak tahu apakah variansi kedua populasi sama atau tidak. Akhirnya Budi mencoba untuk melakukan uji variansi terlebih dahulu dengan menggunakan uji F. Namun, menurut <https://www.statisticshowto.com/probability-and-statistics/hypothesis-testing/f-test/>, pada uji F diasumsikan bahwa kedua populasi terdistribusi normal.
+
+> Kalian bebas menggunkana uji apapun, dengan catatan uji yang digunakan sesuai dengan informasi pada soal. Silahkan berikan alasan kalian menggunakan uji tersebut di bagian interpretasi. Selamat berkreasi..
+
+# Uji Normalitas
+
+Uji apakah kedua populasi terdistribusi normal!
+
+```{r}
+# Ketik di sini
+```
+
+## Interpretasi
+
+\< ketik di sini \>
+
+## Kesimpulan
+
+\< ketik di sini \>
+
+# Uji Variansi
+
+Dari hasil uji normalitas, sebaiknya uji variansi apa yang sebaiknya digunakan? Apa hasil dari uji variansi tersebut?
+
+```{r}
+# Ketik di sini
+```
+
+## Interpretasi
+
+\< ketik di sini \>
+
+## Kesimpulan
+
+\< ketik di sini \>
+
+# Uji Rata-Rata
+
+Dari hasil uji variansi, lakukanlah uji rata-rata! Apa hasil dari uji tersebut?
+
+```{r}
+# Ketik di sini
+```
+
+## Interpretasi
+
+\< ketik di sini \>
+
+## Kesimpulan
+
+\< ketik di sini \>

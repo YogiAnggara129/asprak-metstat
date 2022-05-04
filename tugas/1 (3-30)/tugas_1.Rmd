@@ -1,0 +1,186 @@
+---
+title: "Tugas 1"
+author: '[NIM_NAMA]'
+date: "30/3/2021"
+output:
+  html_document: 
+    toc: true
+    toc_depth: 1
+    toc_float: 
+        collapsed: false
+    includes:
+        before_body: ui/header.html
+    highlight: zenburn
+    df_print: paged
+    theme: lumen
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Soal 1 {.tabset}
+
+Diketahui matriks dimana kolom pertama Nama, kolom kedua Umur, kolom ketiga Jenis Kelamin dan kolom keempat Berat Badan dengan elemen -- elemen berikut ini:
+
+```{r echo=FALSE, out.width='50%'}
+knitr::include_graphics('img/1_matriks.jpg')
+```
+
+~*Source:\ Modul\ Praktikum\ Metstat,\ hlm:\ 12*~
+
+## Bagian a {.tabset}
+
+Buatlah matriks C dengan R!
+
+```{r}
+# ketik di sini 
+
+```
+
+### Interpretasi
+
+ketik di sini
+
+### Kesimpulan
+
+ketik di sini
+
+## Bagian b {.tabset}
+
+Lakukan ekstrasi matriks C, dimana matriks baru hanya berisi elemen yang umurnya kurang dari 25 tahun atau berat badannya kurang dari 60 $kg$!
+
+```{r}
+# ketik di sini 
+
+```
+
+### Interpretasi
+
+ketik di sini
+
+### Kesimpulan
+
+ketik di sini
+
+# Soal 2 {.tabset}
+
+PT. METSTAT ingin mengetahui apakah iklan yang mereka pasang memberi daya tarik pengguna untuk membeli produk atau tidak. Dari tim marketing, diperoleh data sebagai berikut:
+
+```{r echo=FALSE, out.width='75%'}
+knitr::include_graphics('img/2_data.jpg')
+```
+
+~*Source: <https://www.kaggle.com/rakeshrau/social-network-ads>*~
+
+Dengan data tersebut, bantulah manajer PT. METSTAT untuk menentukan:
+
+| Note:
+| - Import data di `data/Social_Network_Ads.csv`
+| - Pada kolom `Purchased`: 1 = terbeli, 0 = tidak membeli
+| - untuk mengurutkan data, gunakan `order` (lihat di fitur help)
+| 
+
+## Bagian a {.tabset}
+
+Tampilkan **data transaksi** (seluruh kolom) berupa 5 data gaji terkecil pengguna dengan usia antara 20 - 30 tahun yang membeli produk tersebut! (20 dan 30 tidak termasuk)
+
+```{r}
+# ketik di sini
+```
+
+### Interpretasi
+
+ketik di sini
+
+### Kesimpulan
+
+ketik di sini
+
+## Bagian b {.tabset}
+
+Tampilkan **id pengguna** dengan gaji terbesar yang mana ia telah membeli produk. Jika terdapat lebih dari 1 pengguna, urutkan berdasarkan umur secara ascending
+
+```{r}
+# ketik di sini
+```
+
+### Interpretasi
+
+ketik di sini
+
+### Kesimpulan
+
+ketik di sini
+
+## Bagian c {.tabset}
+
+Tentukan ringkasan statistik data gaji laki-laki yang membeli produk!
+
+Kemudian, untuk memperbesar peluang meningkatnya penjualan produk, kepada laki-laki dengan gaji sekitar berapa sebaiknya iklan ditujukan? Berikan alasannya!
+
+```{r}
+# ketik di sini
+```
+
+### Interpretasi
+
+ketik di sini
+
+### Kesimpulan
+
+ketik di sini
+
+## Bagian d {.tabset}
+
+Tentukan ringkasan statistik data umur laki-laki yang membeli produk dengan gaji sekitar 41250 sampai 117750!
+
+Kemudian, untuk memperbesar peluang meningkatnya penjualan produk, kepada laki-laki dengan umur sekitar berapa sebaiknya iklan ditujukan? Berikan alasannya!
+
+```{r}
+# ketik di sini
+```
+
+### Interpretasi
+
+ketik di sini
+
+### Kesimpulan
+
+ketik di sini
+
+# Soal 3 {.tabset}
+
+Sebuah benda bergerak dari keadaan diam dengan percepatan tetap sebesar 4 $m/s^2$. Buatlah vektor yang berisikan jarak tempuh benda tiap detiknya dalam satuan $m$, dimulai dari detik ke-1, hingga detik ke-100!
+
+~*Dimodifikasi\ dari:\ <https://brainly.co.id/tugas/24801317>*~
+
+```{r}
+# ketik di sini
+```
+
+## Interpretasi
+
+ketik di sini
+
+## Kesimpulan
+
+ketik di sini
+
+# Soal 4 {.tabset}
+
+Sebuah kios menjual bermacam-macam buah di antaranya jeruk, salak, dan apel. Seseorang yang membeli 1 kg jeruk, 3 kg salak, dan 2 kg apel harus membayar Rp33.000,00. Orang yang membeli 2 kg jeruk, 1 kg salak, dan 1 kg apel harus membayar Rp23.500,00. Orang yang membeli 1 kg jeruk, 2 kg salak, dan 3 kg apel harus membayar Rp36.500,00. Berapakah harga per kilogram salak, harga per kilogram jeruk, dan harga per kilogram apel?
+
+~*Source: <https://blogmipa-matematika.blogspot.com/2017/12/soal-cerita-SPLTV.html?m=0>*~
+
+```{r}
+# ketik di sini
+```
+
+## Interpretasi
+
+ketik di sini
+
+## Kesimpulan
+
+ketik di sini

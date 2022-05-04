@@ -1,0 +1,44 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code.
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*.
+
+# Uji Variansi 2 populasi (UJi F)
+
+```{r}
+Laki=c(160,140,145,150,155,160,160,166,145,155)
+Perempuan=c(145,155, 144,145,160,154,149,145,138,150)
+var.test(Laki, Perempuan, ratio = 1, alternative = "t")
+```
+
+# Uji Variansi lebih 2 Populasi (Uji Bartlett)
+
+```{r}
+data=c(4,5,7,6,5,1,3,5,3,4,8,6,8,9,5)
+mesin=c("A","A","A","B","B","B","B","B","B","C","C","C","C","C","C")
+bartlett.test(data,mesin)
+```
+# Uji Variansi lebih 2 Populasi (Uji Levene)
+```{r}
+# install.packages("car")
+library("car")
+leveneTest(data,mesin,center=mean)
+```
+
+
+```{r}
+library(TeachingDemos)
+
+x = c(144, 150, 164, 175, 160, 144, 169, 145, 168, 170)
+
+z.test(x, mu = 5, stdev = sd(x), alternative = 't')
+```
+
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.

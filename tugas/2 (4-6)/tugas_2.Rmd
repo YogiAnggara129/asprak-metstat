@@ -1,0 +1,138 @@
+---
+title: "Tugas 1"
+author: '[NIM_NAMA]'
+date: "30/3/2021"
+output:
+  html_document: 
+    toc: true
+    toc_depth: 1
+    toc_float: 
+        collapsed: false
+    includes:
+        before_body: ui/header.html
+    highlight: zenburn
+    df_print: paged
+    theme: lumen
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Kembali pada kasus PT. METSTAT. Setelah kamu memberikan hasil analisis kemarin, manajer memuji hasil analisis kamu! Manajer pun mengusulkan kamu untuk mempresentasikan hasil analisis kamu pada rapat nanti. Namun sebelum itu, manajer menyarankan kamu untuk memvisualisasikan hasil analisis kamu terlebih dahulu. DI samping untuk mempercantik slide presentasi, hal ini pun berguna untuk mempermudah dalam menjelaskan hasil analisis pada divisi-divisi yang masih awam akan statistika.
+
+Note: Data tetap menggunakan `Social_Network_Ads.csv` (<https://www.kaggle.com/rakeshrau/social-network-ads>) . Khusus nomor 6 menggunakan data `sales_data_sample.csv` (<https://www.kaggle.com/kyanyoga/sample-sales-data>)
+
+# Soal 1 {.tabset}
+
+Visualisasikan distribusi data usia pengguna. Plot apa yang sebaiknya digunakan? Berikan alasan dan informasi yang diperoleh dari visualisasi tersebut!
+
+```{r}
+# ketik di sini
+```
+
+## Interpretasi
+
+ketik di sini
+
+## Kesimpulan
+
+ketik di sini
+
+# Soal 2 {.tabset}
+
+Visualisasikan banyak pengguna berdasarkan kelompok usia:
+
+-   Di bawah 15 tahun: Kelompok usia anak-anak
+
+-   15-24 tahun: Kelompok usia muda
+
+-   25-34 tahun: Kelompok usia pekerja awal
+
+-   35-44 tahun: Kelompok usia paruh baya
+
+-   45-54 tahun: Kelompok usia pra-pensiun
+
+-   55-64 tahun: Kelompok usia pensiun
+
+-   65 tahun ke atas: Kelompok usia lanjut
+
+~*Source: <https://sepakat.bappenas.go.id/wiki/Kelompok_Usia>*~
+
+Plot apa yang sebaiknya digunakan? Berikan alasan dan informasi yang diperoleh dari visualisasi tersebut!
+
+```{r}
+# ketik di sini
+```
+
+## Interpretasi
+
+ketik di sini
+
+## Kesimpulan
+
+ketik di sini
+
+# Soal 3 {.tabset}
+
+Visualisasikan perbandingan jumlah pengguna laki-laki dan perempuan yang berada pada kelompok usia pekerja awal. Plot apa yang sebaiknya digunakan? Berikan alasan dan informasi yang diperoleh dari visualisasi tersebut!
+
+```{r}
+# ketik di sini
+```
+
+## Interpretasi
+
+ketik di sini
+
+## Kesimpulan
+
+ketik di sini
+
+# Soal 4 {.tabset}
+
+Visualisasikan perbandingan distribusi data gaji pengguna yang membeli produk dengan yang tidak. Plot apa yang sebaiknya digunakan? Berikan alasan dan informasi yang diperoleh dari visualisasi tersebut!
+
+```{r}
+# ketik di sini
+```
+
+## Interpretasi
+
+ketik di sini
+
+## Kesimpulan
+
+ketik di sini
+
+# Soal 5 {.tabset}
+
+Visualisasikan hubungan/korelasi antara usia dengan gaji pengguna. Plot apa yang sebaiknya digunakan? Berikan alasan dan informasi yang diperoleh dari visualisasi tersebut!
+
+```{r}
+# ketik di sini
+```
+
+## Interpretasi
+
+ketik di sini
+
+## Kesimpulan
+
+ketik di sini
+
+# Soal 6 {.tabset}
+
+Visualisasikan data jumlah penjualan tahun lalu tiap bulannya. Plot apa yang sebaiknya digunakan? Berikan alasan dan informasi yang diperoleh dari visualisasi tersebut!
+
+```{r}
+# ketik di sini
+```
+
+## Interpretasi
+
+ketik di sini
+
+## Kesimpulan
+
+ketik di sini

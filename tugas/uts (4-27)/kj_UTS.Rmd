@@ -1,0 +1,252 @@
+---
+title: "UTS PRAK. METODE STATISTIKA"
+author: '[NIM_NAMA]'
+date: "4/26/2021"
+output:
+  html_document: 
+    toc: true
+    toc_depth: 1
+    toc_float: 
+        collapsed: false
+    includes:
+        before_body: ui/header.html
+    highlight: zenburn
+    df_print: paged
+    theme: lumen
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Soal 1 {.tabset}
+
+`airquality` adalah dataset yang secara default telah disediaakan oleh R. Dataset ini berisikan pengukuran kualitas udara harian di New York pada bulan Mei sampai September 1973. Untuk penjelasan lebih lanjut, silahkan gunakan fitur `Help` pada R.
+
+Dengan menggunakan dataset `airquality` , jawablah pertanyaan berikut:
+
+## Bagian a {.tabset}
+
+Tampilkan data observasi dengan kecepatan angin terkecil! Jika hasilnya lebih dari 1 baris, urutkan secara menaik berdasarkan tanggalnya. Pada tanggal berapa kecepatan angin berada di nilai paling rendah?
+
+```{r}
+wind.min = min(airquality$Wind)
+subset(airquality, airquality$Wind == wind.min)
+```
+
+### Interpretasi
+
+ketik di sini
+
+### Kesimpulan
+
+ketik di sini
+
+## Bagian b {.tabset}
+
+Buatlah plot garis rata-rata temperatur per bulan! Pada tanggal berapa suhu mengalami kenaikan paling besar?
+
+```{r}
+# sorry lagi mager bikin kode sendiri, jadi pake library aja :v
+# pokoknya selama outputnya sesuai, benerin aja wkwk
+# kalo belom install, jalanin dulu kode ini:
+# install.packages("dplyr")
+library(dplyr)
+df = airquality %>% 
+        group_by(Month) %>%
+        summarise(Temp.mean = mean(Temp)) %>%
+        select(Month, Temp.mean)
+        
+plot(df$Month, df$Temp.mean, type = "o")
+```
+
+
+# Soal 2 {.tabset}
+
+Carilah peluang-peluang berikut ini :
+
+## Bagian a {.tabset}
+
+P(Z=2.5)
+
+```{r}
+dnorm(2.5,mean=0,sd=1)
+```
+
+### Interpretasi
+
+ketik di sini
+
+### Kesimpulan
+
+ketik di sini
+
+## Bagian b {.tabset}
+
+P(Z≥2.5)
+
+```{r}
+pnorm(2.5, mean=0,sd=1,lower.tail=FALSE)
+```
+
+### Interpretasi
+
+ketik di sini
+
+### Kesimpulan
+
+ketik di sini
+
+## Bagian c {.tabset}
+
+P(Z≤2.5)
+
+```{r}
+pnorm(2.5, mean=0,sd=1)
+```
+
+### Interpretasi
+
+ketik di sini
+
+### Kesimpulan
+
+ketik di sini
+
+## Bagian d {.tabset}
+
+P(-2.5≤Z≤2.5)
+
+```{r}
+a=pnorm(-2.5,mean=0,sd=1)
+b=pnorm(2.5,mean=0,sd=1)
+b-a
+```
+
+### Interpretasi
+
+ketik di sini
+
+### Kesimpulan
+
+ketik di sini
+
+# Soal 3 {.tabset}
+
+Dalam seleksi penerimaan pegawai, diketahui peluang diterima menjadi pegawai adalah 0,40. Apabila ada 15 orang yang melamar menjadi pegawai, berapa peluang :
+
+## Bagian a {.tabset}
+
+ada antara 3 sampai 12 orang yang diterima menjadi pegawai?
+
+
+```{r}
+a=pbinom(3,15,0.4,log=FALSE)
+b=pbinom(12,15,0.4,log=FALSE)
+b-a
+```
+
+### Interpretasi
+
+ketik di sini
+
+### Kesimpulan
+
+ketik di sini
+
+## Bagian b {.tabset}
+
+Maksimum 3 orang yang diterima menjadi pegawai?
+
+
+```{r}
+pbinom(3,15,0.4,lower.tail=TRUE,log=FALSE)
+```
+
+### Interpretasi
+
+ketik di sini
+
+### Kesimpulan
+
+ketik di sini
+
+## Bagian c {.tabset}
+
+Untuk NIM Ganjil : Buatlah plot distribusi peluang binomial dengan parameter pada soal tersebut!
+
+Untuk NIM Genap : Buatlah plot distribusi peluang kumulatif dengan parameter pada soal tersebut!
+
+```{r}
+P=dbinom(0:15,15,0.4)
+x=c(0:15)
+plot(x,P,xlab="x",ylab="Peluang",main="Distribusi Peluang Binomial,n=15 dan p=0.2",type="h")
+```
+
+```{r}
+Q=pbinom(0:15,15,0.4)
+x=c(0:15)
+plot(x,Q,xlab="x",ylab="Peluang",main="Distribusi Peluang Binomial,n=15 dan p=0.2",type="h")
+points(x,Q,pch=16)
+```
+### Interpretasi
+
+ketik di sini
+
+### Kesimpulan
+
+ketik di sini
+
+## Bagian d {.tabset}
+
+Hitung Kuantil sebesar 0.25 dan 0.75 dari variabel acak yang berdistribusi binomial dengan paramaeter pada soal tersebut!
+
+```{r}
+qbinom(0.25,15,0.4,lower.tail=TRUE)
+qbinom(0.75,15,0.4,lower.tail=TRUE)
+```
+
+### Interpretasi
+
+ketik di sini
+
+### Kesimpulan
+
+ketik di sini
+
+# Soal 4 {.tabset}
+
+Nilai ujian Metode Statitika berdistribusi normal dengan rata-rata sebesar 65 dan variansi sebesar 10.
+
+## Bagian a {.tabset}
+
+Hitunglah, berapa peluang mahasiswa yang mengambil mata kuliah tersebut akan memperoleh nilai lebih dari 80! P(X≥80)
+
+```{r}
+# ketik di sini
+```
+
+### Interpretasi
+
+ketik di sini
+
+### Kesimpulan
+
+ketik di sini
+
+## Bagian b {.tabset}
+
+Hitunglah, berapa peluang mahasiswa yang mengambil mata kuliah tersebut akan memperoleh nilai antara 60 sampai 70! P(60≤X≤70)
+
+```{r}
+# ketik di sini
+```
+
+### Interpretasi
+
+ketik di sini
+
+### Kesimpulan
+
+ketik di sini
+

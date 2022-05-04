@@ -1,0 +1,115 @@
+---
+title: "UAS PRAK. METODE STATISTIKA"
+author: '[NIM_NAMA]'
+date: "29/06/2021"
+output:
+  html_document: 
+    toc: true
+    toc_depth: 1
+    toc_float: 
+        collapsed: false
+    includes:
+        before_body: ui/header.html
+    highlight: zenburn
+    df_print: paged
+    theme: lumen
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Untuk meningkatkan penjualan, Kafe Ichiraku melakukan survey kepada 15 pelanggannya. Berdasarkan survey yang dilakukan, diperoleh data sebagai berikut:
+
+```{r}
+df = read.csv("data/survey_pelanggan.csv")
+df
+```
+
+> **NOTE:** Beberapa soal memerlukan langkah tambahan dalam mengambil data, seperti melakukan filter terlebih dahulu, dan sejenisnya. Dalam melakukan langkah tambahan tersebut, kalian bebas buat ketikan manual, pakai bantuan excel, ataupu langsung ketikan kode pakai R.
+
+# Soal 1 {.tabset}
+
+Tentukan apakah proporsi pelanggan laki-laki lebih dari 50%! Gunakan taraf signifikansi sebesar 5%!
+
+```{r}
+# ketik di sini 
+```
+
+### Interpretasi
+
+ketik di sini
+
+### Kesimpulan
+
+ketik di sini
+
+# Soal 2 {.tabset}
+
+Tentukan apakah korelasi antara pendidikan terakhir dengan tingkat kesejahteraan bernilai positif menggunakan uji korelasi Rank Spearman dengan taraf signifikansi sebesar 5%! (kodekan data menjadi angka terlebih dahulu. Misalkan: SMP = 0, SMA = 1, dst. Untuk pengkodeannya, kalian bisa menggunakan excel terlebih dahulu atau dengan R langsung)
+
+```{r}
+# ketik di sini 
+```
+
+### Interpretasi
+
+ketik di sini
+
+### Kesimpulan
+
+ketik di sini
+
+# Soal 3 {.tabset}
+
+Tentukan apakah ada perbedaan variansi pembelian rata-rata per bulan berdasarkan pendidikan terakhir menggunakan uji Barlett dengan taraf signifikansi sebesar 5%! (Anggap data telah memenuhi asumsi)
+
+```{r}
+# ketik di sini
+```
+
+### Interpretasi
+
+ketik di sini
+
+### Kesimpulan
+
+ketik di sini
+
+# Soal 4 {.tabset}
+
+Buatlah model regresi linear antara gaji per bulan terhadap pembelian rata-rata per bulan! Kemudian tentukan:
+
+1.  Apakah model tersebut sudah signifikan atau layak digunakan?
+
+2.  Apakah ada hubungan antara gaji per bulan dengan pembelian rata-rata per bulan!
+
+3.  Berapa pembelian rata-rata per bulan pelanggan dengan gaji sebesar Rp 4.600.000!
+
+```{r}
+# ketik di sini
+```
+
+### Interpretasi
+
+ketik di sini
+
+### Kesimpulan
+
+ketik di sini
+
+# Soal 5 {.tabset}
+
+Salah satu asumsi dari regresi linear adalah residual/error terdistribusi normal. Tentukan apakah residual model regresi yang kita buat sebelumnya terdistribusi normal! Gunakan uji Shapiro Wilk dan QQ plot! (Gunakan kode `lm(…)$residuals` untuk mendapatkan nilai residualnya)
+
+```{r}
+# ketik di sini
+```
+
+### Interpretasi
+
+ketik di sini
+
+### Kesimpulan
+
+ketik di sini

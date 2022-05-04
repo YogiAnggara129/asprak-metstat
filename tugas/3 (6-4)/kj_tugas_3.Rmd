@@ -1,0 +1,94 @@
+---
+title: "Tugas 3"
+author: '[NIM_NAMA]'
+date: "04/06/2021"
+output:
+  html_document:
+    toc: yes
+    toc_depth: 1
+    toc_float:
+      collapsed: no
+    includes:
+      before_body: ui/header.html
+    highlight: zenburn
+    df_print: paged
+    theme: lumen
+---
+
+Budi adalah mahasiswa jurusan XX di kampus YY. Di masa kuliahnya, ia ingin kerja part time untuk menambah uang jajannya. Di sisi lain, ia ingin sekali lulus cepat dan cumlaude dan khawatir jika part time akan mempengaruhi IP-nya. Teman-temannya mengklaim bahwa part time akan membuat Budi sibuk dan jelas akan mempengaruhi IP-nya. Mendengar ucapan temannya, Budi pun ingin membuktikan sendiri kebenaran tersebut. Budi kemudian mengambil sampel IP mahasiswa yang part time dan yang tidak part time secara acak. Berikut adalah datanya:
+
+|                     |      |      |      |      |      |      |      |      |      |
+|---------------------|------|------|------|------|------|------|------|------|------|
+| **Part time**       | 2.33 | 2.95 | 3.04 | 3.85 | 3.10 | 2.84 |      |      |      |
+| **Tidak part time** | 3.24 | 3.24 | 2.32 | 3.18 | 3.31 | 3.38 | 2.64 | 3.09 | 3.11 |
+
+Dengan menggunakan **taraf signifikansi sebesar 5%**, tentukan apakah rata-rata IP mahasiswa yang part time lebih kecil dari mahasiswa yang tidak part time!
+
+------------------------------------------------------------------------
+
+Untuk menentukan klaim teman-temannya benar atau tidak, Budi memutuskan menggunakna uji t. Akan tetapi Budi tidak tahu apakah variansi kedua populasi sama atau tidak. Akhirnya Budi mencoba untuk melakukan uji variansi terlebih dahulu dengan menggunakan uji F. Namun, menurut <https://www.statisticshowto.com/probability-and-statistics/hypothesis-testing/f-test/>, pada uji F diasumsikan bahwa kedua populasi terdistribusi normal.
+
+> Kalian bebas menggunkana uji apapun, dengan catatan uji yang digunakan sesuai dengan informasi pada soal. Silahkan berikan alasan kalian menggunakan uji tersebut di bagian interpretasi. Selamat berkreasi..
+
+# Uji Normalitas
+
+Uji apakah kedua populasi terdistribusi normal!
+
+```{r}
+# data
+part_time = c(2.33, 2.95, 3.04, 3.85, 3.10, 2.84)
+no_part_time = c(3.24, 3.24, 2.32, 3.18, 3.31, 3.38, 2.64, 3.09, 3.11)
+
+# normality test
+shapiro.test(part_time) # terima H0 => normal
+shapiro.test(no_part_time) # tolak H0 => tidak normal
+```
+
+## Interpretasi
+
+\< ketik di sini \>
+
+## Kesimpulan
+
+\< ketik di sini \>
+
+# Uji Variansi
+
+Apakah kedua populasi terdistribusi normal? ataukah ada yang tidak normal? Uji variansi apa yang sebaiknya digunakan? Tuliskan hasil dari uji variansinya!
+
+```{r}
+# karena ada 1 populasi yg tidak normal, kita pakai uji levene
+
+library("car")
+
+# data preprocessing
+all_data = c(part_time, no_part_time)
+label = c(rep("Y", length(part_time)), rep("N", length(no_part_time)))
+
+# variance testing
+leveneTest(all_data, label, center = "mean") # terima H0 => varian sama
+```
+
+## Interpretasi
+
+\< ketik di sini \>
+
+## Kesimpulan
+
+\< ketik di sini \>
+
+# Uji Rata-Rata
+
+Dari hasil uji variansi, lakukanlah uji rata-rata! Apa hasil dari uji tersebut?
+
+```{r}
+t.test(part_time, no_part_time, alternative = 'l', mu=0, paired=FALSE, var.equal=TRUE) # terima H0 => mean part time >= mean no part time
+```
+
+## Interpretasi
+
+\< ketik di sini \>
+
+## Kesimpulan
+
+\< ketik di sini \>
